@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posts Centinela Facebook/Instagram</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background: #d1cfa9;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .title {
+      position: absolute;
+      top: 55px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .card-holder {
+      display: flex;
+      width: 100%;
+      height: 200px;
+      position: absolute;
+      top: 50%;
+      left: 45%;
+      transform: translate(-50%, -50%);
+      justify-content: center;
+    }
+
+    .card img, .card iframe {
+      width: 100%;
+      border-radius: inherit;
+    }
+
+    .card.large {
+      width: 350px; /* Incrementamos el tamaño */
+      height: 350px;
+      z-index: 1000;
+      transform: perspective(600px) rotateY(0deg) translateZ(70px); /* Más sobresaliente */
+      box-shadow: 0px 0px 25px rgba(0, 0, 0, 1); /* Más prominente */
+      margin-right: -15px;
+    }
+
+    .card {
+      width: 200px;
+      height: 200px;
+      display: inline-flex;
+      background: #333;
+      border-radius: 30px;
+      transition: all .4s ease;
+      margin-right: -150px;
+      box-shadow: 0 18px 31px -8px rgba(0, 0, 0, .5);
+      transform: perspective(600px) rotateY(45deg);
+    }
+
+    .card:hover {
+      transform: perspective(600px) rotateY(0deg) translateZ(50px);
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
+    }
+
+    .card:not(.last):hover {
+      margin-right: -15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">Campañas de marketing Italian Coffee León</div>
+  <div class="card-holder"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Array con las URLs de las imágenes
+      const cardContent = [
+        "https://raw.githubusercontent.com/Fran15711/postsitaliancoffee/refs/heads/main/340631456_247242624499930_1412283439916178353_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postsitaliancoffee/refs/heads/main/323896338_706205917527352_3202578321338309653_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postsitaliancoffee/refs/heads/main/334435813_1453941671677549_2737048560827313418_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postsitaliancoffee/refs/heads/main/328312336_723684936082785_8806517294993286141_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postsitaliancoffee/refs/heads/main/324149758_1163395047639348_339796925135919903_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postsitaliancoffee/refs/heads/main/318022740_555938036543481_8170650795216993423_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postsitaliancoffee/refs/heads/main/314944243_531992672271351_6002186651484526124_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postsitaliancoffee/refs/heads/main/314774574_531998645604087_9102298936154280027_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postsitaliancoffee/refs/heads/main/303307335_478922944244991_6899924584430985948_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postsitaliancoffee/refs/heads/main/291432295_1249376842473000_2705351962620047600_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postsitaliancoffee/refs/heads/main/291567051_1249375992473085_6427362955942210611_n.jpg",
+        "https://raw.githubusercontent.com/Fran15711/postsitaliancoffee/refs/heads/main/291865054_1252433468834004_4361379737467383932_n.jpg"
+      ];
+
+      // Contenedor de tarjetas
+      const cardHolder = document.querySelector('.card-holder');
+
+      // Crear tarjetas dinámicamente
+      cardContent.forEach((url) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+
+        const img = document.createElement('img');
+        img.src = url;
+        card.appendChild(img);
+
+        cardHolder.appendChild(card);
+      });
+
+      // Agregar funcionalidad de clic
+      const cards = document.querySelectorAll('.card');
+      cards.forEach((card) => {
+        card.addEventListener('click', function () {
+          card.classList.toggle('large');
+
+          // Cerrar otras tarjetas
+          cards.forEach((otherCard) => {
+            if (otherCard !== card) {
+              otherCard.classList.remove('large');
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
